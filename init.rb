@@ -1,4 +1,3 @@
-require 'pry'
 class NumberMapping
   attr_accessor :number, :associated_words
   @@dictionary = Proc.new{ File.open('./data/dictionary.txt', 'r').readlines(chomp: true).group_by(&:length) }.call
