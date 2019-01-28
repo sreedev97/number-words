@@ -33,6 +33,7 @@ class NumberMapping
 
   def word_combinations(processed_combinations)
     self.associated_words = processed_combinations.map{|strlen, comb| comb.first.product(comb.last)}.reject(&:empty?).flatten(1)
+    self.associated_words +=  self.associated_words.product(self.associated_words).map(&:flatten).map(&:uniq).map(&:join) & @@dictionary.values.flatten
   end
 end
 
