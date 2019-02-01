@@ -18,7 +18,10 @@ class PhoneNumber
   def initialize(number='')
     # accepts number as attribute for new method
     self.number = number
+    self.to_words
   end
+
+  protected
 
   def to_words
     # replaces each digit with the mapping value from the @@mapping hash
