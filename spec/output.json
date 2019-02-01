@@ -1,0 +1,58 @@
+[
+  {
+    "phone": "6686787825",
+    "expected_outcome": [
+      [
+        "MOTOR",
+        "USUAL"
+      ],
+      [
+        "NOUN",
+        "STRUCK"
+      ],
+      [
+        "NOUNS",
+        "TRUCK"
+      ],
+      [
+        "NOUNS",
+        "USUAL"
+      ],
+      [
+        "ONTO",
+        "STRUCK"
+      ],
+      "MOTORTRUCK"
+    ]
+  },
+  {
+    "phone": "2282668687",
+    "expected_outcome": [
+      [
+        "ACT",
+        "AMOUNTS"
+      ],
+      [
+        "ACT",
+        "CONTOUR"
+      ],
+      [
+        "ACTA",
+        "MOUNTS"
+      ],
+      [
+        "BAT",
+        "AMOUNTS"
+      ],
+      [
+        "BAT",
+        "CONTOUR"
+      ],
+      [
+        "CAT",
+        "CONTOUR"
+      ],
+      "CATAMOUNTS"
+    ]
+  }
+]
