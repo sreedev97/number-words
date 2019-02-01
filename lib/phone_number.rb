@@ -18,10 +18,15 @@ class PhoneNumber
   def initialize(number='')
     # accepts number as attribute for new method
     self.number = number
+    validate!
     self.to_words
   end
 
   protected
+
+  def validate!
+    raise ArgumentError.new "Invalid Phone Number Entered" if self.number.length > 10 || self.number.match(/[0-1]/)
+  end
 
   def to_words
     # replaces each digit with the mapping value from the @@mapping hash

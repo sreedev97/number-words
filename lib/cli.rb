@@ -13,5 +13,8 @@ class Cli
     p phone.associated_words
     end_time = Time.now
     puts "Found #{phone.associated_words.length} words in #{end_time-start_time} seconds"
+  rescue ArgumentError => e
+    puts "Entered Phone Number is Invalid"
+    retry
   end
 end
