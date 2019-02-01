@@ -1,5 +1,5 @@
 require_relative 'phone_number'
-class CliInterface
+class Cli
   def initialize
     puts "Welcome to Phone Number Converter"; run
   end

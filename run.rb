@@ -1,2 +1,3 @@
-require_relative './lib/cli_interface.rb'
-CliInterface.new
+#!/usr/lib/ruby
+require_relative './lib/cli.rb'
+Cli.new
