@@ -22,6 +22,25 @@ class PhoneNumber
     self.to_words
   end
 
+  def three_slice_processing
+    mapped_digits = self.number.chars.map(&@@mapping.method(:[]))
+    digit_count = mapped_digits.length
+    converted_mapped_digits = (2..digit_count-2).each_with_object(Hash.new) do |idx, res_hash|
+      slice1 = mapped_digits[0..idx]
+      slice2 = mapped_digits[idx.next..idx.next+3] if !((digit_count - (idx.next+3)) < 3)
+      slice3 = mapped_digits[slice2.nil? ? idx.next..digit_count : idx.next+3..digit_count]
+      next if slice1.to_a.length < 3 || slice2.to_a.length < 3 || slice3.to_a.length < 3
+      comb1 = slice1.shift.product(*slice1).map(&:join)
+      comb2 = slice2.shift.product(*slice2).map(&:join)
+      comb3 = slice3.shift.product(*slice3).map(&:join)
+      next if [comb1, comb2, comb3].any?(&:nil?)
+      res_hash[idx] = [(comb1.to_a & @@dictionary[comb1.to_a.sort_by(&:length).last.length]), 
+                       (comb2.to_a & @@dictionary[comb2.to_a.sort_by(&:length).last.length]), 
+                       (comb3.to_a & @@dictionary[comb2.to_a.sort_by(&:length).last.length])]
+    end
+    converted_mapped_digits.values.flatten(1).reject(&:empty?)
+  end
+
   protected
 
   def validate!
